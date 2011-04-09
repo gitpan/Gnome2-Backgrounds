@@ -9,7 +9,6 @@ dist.ini
 lib/Gnome2/Backgrounds.pm
 t/00-load.t
 t/01-backgrounds.t
-t/01-info.t
 t/backgrounds.xml
 t/boilerplate.t
 t/manifest.t

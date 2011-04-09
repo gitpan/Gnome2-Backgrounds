@@ -18,8 +18,9 @@ requires:
   XML::Simple: 0
 resources:
   bugtracker: https://github.com/AlexBio/Gnome2-Backgrounds/issues
+  homepage: http://search.cpan.org/dist/Gnome2-Backgrounds/
   repository: git://github.com/AlexBio/Gnome2-Backgrounds.git
-version: 0.01
+version: 0.02
 x_Dist_Zilla:
   plugins:
     -

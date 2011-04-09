@@ -1,6 +1,6 @@
 package Gnome2::Backgrounds;
 BEGIN {
-  $Gnome2::Backgrounds::VERSION = '0.01';
+  $Gnome2::Backgrounds::VERSION = '0.02';
 }
 
 use XML::Simple;
@@ -15,7 +15,7 @@ Gnome2::Backgrounds - Helper module for managing wallpapers in GNOME
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -67,7 +67,41 @@ sub new {
 
 =head2 backgrounds( $name )
 
-Returns a list of background names matching C<$name>.
+Returns a list of backgrounds matching C<$name>. The backgrounds are stored as
+anonymous hashes containing the following fields:
+
+=over
+
+=item C<name>
+
+Backgrounds name (typically the basename of the background's path).
+
+=item C<filename>
+
+Picture file name (absolute path of the image file).
+
+=item C<options>
+
+Picture options. Can be: B<zoom>, B<wallpaper>, B<centered>, B<scaled>,
+B<stretched> or B<spanned>.
+
+=item C<shade_type>
+
+Color shading type. Can be: B<solid>, B<horizontal-gradient> or B<vertical-gradient>.
+
+=item C<pcolor>
+
+Primary color.
+
+=item C<scolor>
+
+Secondary color.
+
+=item C<deleted>
+
+Whether the background has been removed or not.
+
+=back
 
 =cut
 
@@ -76,61 +110,57 @@ sub backgrounds {
 
 	$name = "(.*)" unless defined $name;
 
-	my @return = grep { ref $_ ne 'HASH' and m/$name/ } %{ $self -> {'backgrounds'} };
+	my @matches;
 
-	return \@return;
+	foreach my $bg (keys %{ $self -> {'backgrounds'} }) {
+		push @matches, {
+			'name' => $bg,
+			%{ $self -> {'backgrounds'} -> {$bg} }
+		} if ($bg =~ /$name/);
+	}
+
+	return \@matches;
 }
 
-=head2 info( $names )
+=head2 set( $background )
 
-Returns a list of hash ref containing information about C<$names> background
-(where names are valid background names). The following fields are set:
-
-=over
-
-=item C<filename>
-
-=item C<options>
-
-=item C<scolor>
-
-=item C<shade_type>
-
-=item C<deleted>
-
-=item C<pcolor>
-
-=back
-
-=cut
-
-sub info {
-	my ($self, $names) = @_;
-
-	my @infos = map { $self -> {'backgrounds'} -> {$_} } @{ $names };
-
-	return \@infos;
-}
-
-=head2 set( $name )
-
-Sets C<$name> background (where name is a valid background name, or the path to
-an image file) as default background.
+Sets C<$background> (where C<$background> is a valid background name, or the
+path to an image file) as default background using GConf.
 
 =cut
 
 sub set {
-	my ($self, $name) = @_;
+	my ($self, $bg) = @_;
 
 	my $key = '/desktop/gnome/background/picture_filename';
 	my $client  = Gnome2::GConf::Client -> get_default;
 
-	$name = $self -> {'backgrounds'} -> {$name} -> {'filename'} unless (-s $name);
+	$bg = $self -> {'backgrounds'} -> {$bg} -> {'filename'} unless (-s $bg);
 
 	$client -> set($key, {
 		type => 'string',
-		value => $name
+		value => $bg
 	});
+}
+
+=head2 current( )
+
+Returns the background currently used, in the form of a hash reference (see
+C<backgrounds()> for more info).
+
+=cut
+
+sub current {
+	my $self = shift;
+
+	my $key = '/desktop/gnome/background/picture_filename';
+	my $client  = Gnome2::GConf::Client -> get_default;
+
+	my $name = $client -> get_string($key);
+
+	my @match = grep { $_ -> {'filename'} eq $name } @{ $self -> backgrounds };
+
+	return $match[0];
 }
 
 =head1 AUTHOR

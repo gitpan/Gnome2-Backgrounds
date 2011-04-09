@@ -36,13 +36,14 @@
       "bugtracker" : {
          "web" : "https://github.com/AlexBio/Gnome2-Backgrounds/issues"
       },
+      "homepage" : "http://search.cpan.org/dist/Gnome2-Backgrounds/",
       "repository" : {
          "type" : "git",
          "url" : "git://github.com/AlexBio/Gnome2-Backgrounds.git",
          "web" : "https://github.com/AlexBio/Gnome2-Backgrounds"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_Dist_Zilla" : {
       "plugins" : [
          {

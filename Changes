@@ -1,3 +1,49 @@
+==============================
+9999-99-99 99:99:99 +0000 HEAD
+==============================
+
+  commit 0970cd0ccc126292ee9e49efa0c9cc1615074ef2
+  Author: Alessandro Ghedini <al3xbio@gmail.com>
+  Date:   Sat Apr 9 18:54:19 2011 +0200
+  
+    bump version
+
+  commit 0e3072c5174fa8afb3a91ec5eb7472b30aa6b49b
+  Author: Alessandro Ghedini <al3xbio@gmail.com>
+  Date:   Sat Apr 9 18:53:41 2011 +0200
+  
+    general clean-up
+
+  commit 4682d46a0a38fdd0b4147d255be5313b9b0055ed
+  Author: Alessandro Ghedini <al3xbio@gmail.com>
+  Date:   Sat Apr 9 18:47:48 2011 +0200
+  
+    add current() method
+
+  commit 7379a12f7db77cb6d8b2be244efad99368b4a361
+  Author: Alessandro Ghedini <al3xbio@gmail.com>
+  Date:   Sat Apr 9 18:35:41 2011 +0200
+  
+    update tests
+
+  commit 7b410a0b2e2f77fdfbfadeecc22f4472864d02df
+  Author: Alessandro Ghedini <al3xbio@gmail.com>
+  Date:   Sat Apr 9 18:32:40 2011 +0200
+  
+    merge info() into backgrounds()
+
+  commit df85957b117c37904b916e78a5a5572aecd24c72
+  Author: Alessandro Ghedini <al3xbio@gmail.com>
+  Date:   Sat Apr 9 17:44:46 2011 +0200
+  
+    fix SYNOPSIS (missing call to info())
+
+  commit 88e77c3b8078958e29a772e21732a8588b0670ca
+  Author: Alessandro Ghedini <al3xbio@gmail.com>
+  Date:   Sat Apr 9 17:43:37 2011 +0200
+  
+    add additional information for info() method 
+
 ===================================
 End of changes in the last 365 days
 ===================================
