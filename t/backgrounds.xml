@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>first_wallpaper.jpg</name>
+    <filename>/path/to/the/awesome/first_wallpaper.jpg</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#6666baba0000</pcolor>
+    <scolor>#6666baba0000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>second_wallpaper.jpg</name>
+    <filename>/path/to/the/awesome/second_wallpaper.jpg</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#6666baba0000</pcolor>
+    <scolor>#6666baba0000</scolor>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>another_wallpaper.jpg</name>
+    <filename>/path/to/the/awesome/another_wallpaper.jpg</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#6666baba0000</pcolor>
+    <scolor>#6666baba0000</scolor>
+  </wallpaper>
+</wallpapers>
